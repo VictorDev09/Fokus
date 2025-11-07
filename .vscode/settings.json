@@ -1,0 +1,10 @@
+{
+    "cSpell.customDictionaries": {
+        "custom-dictionary-folder-fokus": {
+            "name": "custom-dictionary-folder-fokus",
+            "path": "${workspaceFolder:Fokus}/.cspell/custom-dictionary-folder-fokus.txt",
+            "addWords": true,
+            "scope": "folder"
+        }
+    }
+}

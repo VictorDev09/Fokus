@@ -16,7 +16,7 @@ const audioPlay = new Audio('/sons/play.wav');
 const audioPausa = new Audio('/sons/pause.mp3');
 const audioTempoFinalizado = new Audio('./sons/beep.mp3')
 
-let tempoDecorridoEmSegundos = 1500
+let tempoDecorridoEmSegundos = 30
 let intervaloId = null
 
 musica.loop = true
@@ -30,13 +30,13 @@ musicaFocoInput.addEventListener('change', () => {
 })
 
 focoBt.addEventListener('click', () => {
-    tempoDecorridoEmSegundos = 1500
+    tempoDecorridoEmSegundos = 30
     alterarContexto('foco')
     focoBt.classList.add('active')
 })
 
 curtoBt.addEventListener('click', () => {
-    tempoDecorridoEmSegundos = 1000
+    tempoDecorridoEmSegundos = 5
     alterarContexto('descanso-curto')
     curtoBt.classList.add('active')
 })
@@ -80,9 +80,9 @@ const contagemRegressiva = () => {
         audioTempoFinalizado.play()
         alert('Tempo finalizado!')
         const focoAtivo = html.getAttribute('data-contexto') == 'foco'
-        if(focoAtivo){
+        if (focoAtivo) {
             const evento = new CustomEvent('FocoFinalizado')
-            document.dispatchEvent(evento);
+            document.dispatchEvent(evento)
         }
         zerar()
         return
@@ -106,7 +106,7 @@ function iniciarOuPausar() {
 }
 
 function zerar() {
-    clearInterval(intervaloId) 
+    clearInterval(intervaloId)
     iniciarOuPausarBt.textContent = "Começar"
     iniciarOuPausarBtIcone.setAttribute('src', `/imagens/play_arrow.png`)
     intervaloId = null
